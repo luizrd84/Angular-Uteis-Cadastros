@@ -1,0 +1,175 @@
+.pagina {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6f8;
+
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  min-height: 100vh;
+}
+
+.pagina h2 {
+  margin-bottom: 30px;
+}
+
+
+/* ===== CARDS (SEÇÕES) ===== */
+
+.busca-por-cep,
+.busca-por-rua {
+  background: white;
+  width: 600px;
+  padding: 25px;
+  margin-bottom: 30px;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 2px 6px rgba(0,0,0,0.08),
+    0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* ===== TÍTULOS ===== */
+
+.busca-por-cep h3,
+.busca-por-rua h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* ===== LABEL ===== */
+
+label {
+  font-weight: 500;
+  display: block;
+  margin-top: 10px;
+}
+
+/* ===== INPUTS ===== */
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+
+  margin-top: 6px;
+  margin-bottom: 15px;
+
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+
+  font-size: 14px;
+
+  transition: border 0.2s, box-shadow 0.2s;
+
+  box-sizing: border-box;
+}
+
+/* foco bonito */
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border: 1px solid #1976d2;
+
+  box-shadow: 0 0 0 2px rgba(25,118,210,0.15);
+}
+
+/* ===== BOTÃO ===== */
+
+button {
+  padding: 10px 16px;
+
+  border: none;
+  margin-bottom: 10px;
+  border-radius: 6px;
+
+  background: #1976d2;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #125aa0;
+}
+
+/* ===== TEXTAREA ===== */
+
+textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+/* ===== RESULTADO DE RUAS ===== */
+
+.busca-por-rua ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+
+  border: 1px solid #eee;
+  border-radius: 6px;
+
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.busca-por-rua li {
+  padding: 10px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.busca-por-rua li:last-child {
+  border-bottom: none;
+}
+
+.busca-por-rua li:hover {
+  background: #f7f7f7;
+}
+
+/* ===== AUTOCOMPLETE ===== */
+
+.autocomplete {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.autocomplete input {
+  margin-bottom: 0;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%; /* Agora o 100% é colado no input */
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-top: 2px; /* Espaço pequeno apenas para não sobrepor a borda */
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 1000; /* Garante que fique acima de tudo */
+}
+
+.dropdown li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown li:hover {
+  background: #f1f5fb;
+}

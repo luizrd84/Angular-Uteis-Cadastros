@@ -1,0 +1,67 @@
+<div class="pagina">
+
+    <h2>Sistema de busca de endereços para cadastros</h2>
+
+    <div class="busca-por-cep">
+
+        <h3>Busca por cep:</h3>
+        <input type="text" [(ngModel)]="inputCep" (input)="formatarCep()" maxlength="10">
+        <button  type="button"  (click)="buscarPorCep()">Buscar Endereço</button>
+        <textarea name="resultadoBuscaCep" [(ngModel)]="resultadoBuscaCep"></textarea>
+
+    </div>
+
+    <div class="busca-por-rua">
+
+        <h3>Busca por nome de rua:</h3>
+        <label for="">Estado: </label>
+
+        <select [(ngModel)]="estadoSelecionado" (ngModelChange)="onEstadoChangeCarregarCidadades($event)">
+        @for (estado of estados; track estado) {
+            <option [value]="estado">
+            {{ estado }}
+            </option>
+        }
+        </select>
+        
+        <div class="autocomplete">
+            <label for="busca_cidade_input">Cidade: </label>
+            <input 
+                type="text" name="busca_cidade_input" [formControl]="cidadeControl" placeholder="Digite a cidade"  
+                    (blur)="validarCidade()" >
+            @if(cidadesFiltradas.length > 0) {
+                <ul class="dropdown">
+                @for (cidade of cidadesFiltradas; track cidade) {
+                    <li (mousedown)="selecionarCidade(cidade)">
+                    {{ cidade }}
+                    </li>
+                }
+                </ul>
+            }
+        </div>
+
+        <label for="selecao_de_rua">Nome da Rua: </label>
+        <input type="text" name="selecao_de_rua" [formControl]="logradouroControl" placeholder="Digite a rua">
+        <div>
+            @if(logradouros.length > 0) {
+                <ul>
+                    @for(l of logradouros; track l.cep) {
+                        <li (mousedown)="selecionarLogradouro(l)" style="cursor: pointer;">
+                            {{ l.logradouro }} - {{ l.bairro }} ({{ l.cep }})
+                        </li>
+                    }
+                </ul>
+            }  
+        </div>
+
+    </div>
+
+    @if(exibirBuscaPorRua) {    
+        
+        <div class="busca-por-cep">
+            <h3>Dados completos da busca:</h3>
+            <textarea name="resultadoBuscaCep" [(ngModel)]="resultadoBuscaPorRua"></textarea>
+        </div>
+    }
+
+</div>
